@@ -1,0 +1,30 @@
+Teste teórico
+
+Como você organizaria a arquitetura da aplicação/dados?
+
+
+	A aplicaçao inicia com a coleta de dados pelo Crawler e retornando um arquivo com os dados desejados e pré-processados, apartir disso é processados os dados por um classificador para verificar a qualidade dos dados, caso os dados estejam bons é salvado eles no banco de dados, se o os dados não passaram no classificador, é necessario a intervenção humana para checar a qualidade dos dados.
+ 
+Crawler ------> Classificador ------> Base de Dados
+	 Dados 			bom resultado da qualidade dos dados
+			      ------> Um humano faz a analise dos dados ------> Base de Dados
+				resultados de baixa qualidade		  se os dados estiverem ok
+
+
+O que deixaria automatizado/agendado?
+
+A executação do crawler eu deixaria automatizada, o tempo em tempo que ele será executado, exemplo: toda segunda feira ele seria executado.
+
+A checagem da qualidade dos dados feita pelo classificador antes de salvar no banco de dados eu deixaria agendada para ser feita manualmente até ter certeza de 100% da qualidade do modelo utilizado pelo classificador. 
+
+
+O que monitorar pra acompanhar a saúde/qualidade da aplicação?
+
+É importante controlar os links que é visitado, checando se não esta visitando muitos links quebrados, pois se tiver a saúde da aplicação é afetada. E também é importante monitorar a qualidade dos dados extraindo, passando eles por um classificador, pois pode ser recolidos "lixos" e assim diminuir a qualidade da aplicação.
+
+
+Na sua opinião, quais são os principais riscos que podem causar erros na execução desse script?
+
+As paginas podem ser atualizadas, a forma que o HTML/CSS esta estruturado pode mudar, quebrando como a extração de dados é realizada, sendo assim as referencias aos dados não são mais valídas. Também pode ocorrer a perda dos links utilizados como start para a coleta e os links para acessar as paginas do produto, assim a execução do script terá erros.
+
+
